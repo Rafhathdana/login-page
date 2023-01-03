@@ -1,0 +1,22 @@
+<%- include('header') -%>
+
+<div class="text-center center-div mt-5" id="login">
+  <div class="container w-40 py-5 mt-5">
+    <h3><%=locals.name ? name :"User" %></h3>
+    <h1>Welcome to Home Page</h1>
+    <a
+      href="/logout"
+      class="btn btn-danger rounded-pill"
+      style="
+        position: absolute;
+        top: 28px;
+        right: 47px;
+        padding: 0 26px;
+        text-align: center;
+      "
+      >LogOut</a
+    >
+  </div>
+</div>
+
+<%- include('footer') -%>
