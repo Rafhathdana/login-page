@@ -21,12 +21,14 @@ const credential = [
     name: "Rafhathdana",
   },
 ];
+var errmsg = null;
 
 router.get("/login", (req, res) => {
   if (req.session.user) {
     res.redirect("/");
   } else {
-    res.render("index", { title: "Login System" });
+    res.render("index", { title: "Login System", err_msg: errmsg });
+    errmsg = null;
   }
 });
 
@@ -48,7 +50,7 @@ router.post("/login", (req, res) => {
   }
   if (flag == 1) {
     errmsg = "Invalid Username or Password";
-    res.render("index", { err_msg: errmsg });
+    res.redirect("/login");
   }
 });
 
@@ -58,7 +60,7 @@ router.get("/logout", (req, res) => {
     if (err) {
       res.send("Error");
     } else {
-      res.redirect("/");
+      res.redirect("/login");
     }
   });
 });
